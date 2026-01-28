@@ -2,13 +2,15 @@
   "name": "agent-ignore",
   "version": "0.1.0",
   "description": "Add AI agent folders to .gitignore",
+  "type": "module",
   "bin": {
     "agent-ignore": "./add-agent-ignore.js"
   },
   "files": [
     "add-agent-ignore.js",
     "add-agent-ignore.sh",
-    "agent-folders.txt"
+    "agent-folders.txt",
+    "lib/"
   ],
   "keywords": [
     "gitignore",
@@ -18,5 +20,11 @@
     "cursor",
     "copilot"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
 }

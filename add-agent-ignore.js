@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // Adds AI agent folders to .gitignore (only if they exist)
 
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
-const { MARKER, GITIGNORE } = require("./lib/constants");
-const {
+import { MARKER, GITIGNORE } from "./lib/constants.js";
+import {
   getGitRoot,
   fetchAgentsTs,
   parseSkillsDirs,
@@ -13,7 +13,7 @@ const {
   filterExistingFolders,
   getExistingAgentEntries,
   removeAgentSection,
-} = require("./lib/helpers");
+} from "./lib/helpers.js";
 
 async function main() {
   const root = getGitRoot();
