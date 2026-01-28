@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 
-import { MARKER, GITIGNORE } from "./lib/constants.js";
+import { MARKER, GITIGNORE } from "../lib/constants.js";
 import {
   getGitRoot,
   fetchAgentsTs,
@@ -13,7 +13,7 @@ import {
   filterExistingFolders,
   getExistingAgentEntries,
   removeAgentSection,
-} from "./lib/helpers.js";
+} from "../lib/helpers.js";
 
 async function main() {
   const root = getGitRoot();

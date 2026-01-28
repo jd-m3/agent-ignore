@@ -4,10 +4,10 @@
   "description": "Add AI agent folders to .gitignore",
   "type": "module",
   "bin": {
-    "agent-ignore": "./add-agent-ignore.js"
+    "agent-ignore": "./scripts/add-agent-ignore.js"
   },
   "files": [
-    "add-agent-ignore.js",
+    "scripts/add-agent-ignore.js",
     "add-agent-ignore.sh",
     "agent-folders.txt",
     "lib/"
@@ -22,7 +22,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "update-folders": "node scripts/update-agent-folders.js"
   },
   "devDependencies": {
     "vitest": "^2.1.8"
