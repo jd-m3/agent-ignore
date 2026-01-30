@@ -1,6 +1,6 @@
 {
   "name": "agent-ignore",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Add AI agent folders to .gitignore",
   "type": "module",
   "bin": {
