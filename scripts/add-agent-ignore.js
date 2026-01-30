@@ -52,21 +52,24 @@ async function main() {
   // Check existing .gitignore state
   const { hasSection, entries } = getExistingAgentEntries(gitignorePath);
 
+  // Merge existing entries with new folders (preserve manually added folders)
+  const mergedSet = new Set([...entries, ...existingFolders]);
+  const mergedFolders = Array.from(mergedSet).sort();
+
   // Check if we need to update
   const existingSet = new Set(entries);
-  const newSet = new Set(existingFolders);
   const setsEqual =
-    existingSet.size === newSet.size &&
-    [...existingSet].every((e) => newSet.has(e));
+    existingSet.size === mergedSet.size &&
+    [...existingSet].every((e) => mergedSet.has(e));
 
   if (hasSection && setsEqual) {
     console.log("AI agents section already up-to-date in .gitignore");
     process.exit(0);
   }
 
-  // Remove old section and write new one
+  // Remove old section and write new one with merged folders
   const baseContent = removeAgentSection(gitignorePath);
-  const section = `\n${MARKER}\n${existingFolders.join("\n")}\n`;
+  const section = `\n${MARKER}\n${mergedFolders.join("\n")}\n`;
   fs.writeFileSync(gitignorePath, baseContent + section);
 
   if (hasSection) {
